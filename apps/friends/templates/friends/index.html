@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Friends</title>
+    {% load staticfiles %}
+  </head>
+  <body>
+    <form action="/newUser" method="post">
+      {% csrf_token %}
+      <input type="text" name="first_name" placeholder="First" required>
+      <input type="text" name="last_name" placeholder="Last" required>
+      <input type="text" name="interest" placeholder="Interest" required>
+      <input type="submit" value="Submit">
+    </form>
+    <table>
+      <tr>
+        <th>User</th>
+        <th>Action</th>
+      </tr>
+      {% for user in users %}
+      <tr>
+        <td> {{user.first_name}} {{user.last_name}} </td>
+        <td> <a href="/user/{{user.id}}">view</a> </td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </body>
+</html>

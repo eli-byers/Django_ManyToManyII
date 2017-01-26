@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>View</title>
+    {% load staticfiles %}
+  </head>
+  <body>
+    <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+    {% for interest in interests %}
+      <p>{{ interest.name }}</p>
+    {% endfor %}
+  </body>
+  <button><a href="/">Back</a></button>
+</html>
